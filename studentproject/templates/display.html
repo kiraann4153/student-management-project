@@ -1,0 +1,36 @@
+{% extends 'navbar.html' %}
+{% block content %}
+
+
+
+
+<h2>Student Details</h2>
+<table align="center" border="5" bgcolor="grey">
+
+    <tr style="background-color:red">
+        <th>Id</th>
+        <th>Stud_Name</th>
+        <th>Stud_Age</th>
+        <th>Stud_Phno</th>
+        <th>Stud_City</th>
+        <th>Stud_Course</th>
+        <th>update</th>
+        <th>delete</th>
+    </tr>
+    {% for i in data %}
+       <tr style=" background-color:yellow">
+        <td style="color:magenta">{{ i.id }}</td>
+        <td style="color:navy blue">{{ i.Stud_Name }}</td>
+        <td style="color:olive">{{ i.Stud_Age }}</td>
+        <td style="color:black">{{ i.Stud_Phno }}</td>
+        <td style="color:red">{{ i.Stud_City }}</td>
+        <td style="color:green">{{ i.Stud_Course }}</td>
+           <td style="color:red"><a href="{% url 'update' i.id %}">update</a> </td>
+           <td style="color:red"><a href="{% url 'delete' i.id %}">delete</a> </td>
+
+       </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
